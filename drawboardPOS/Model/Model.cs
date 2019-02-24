@@ -4,7 +4,10 @@ using System.Text;
 
 namespace drawboardPOS.Model
 {
-
+    public enum Item
+    {
+        A, B, C, D, E
+    }
     public class VolumePrice
     {
         public int Volume { get; set; }
@@ -13,15 +16,14 @@ namespace drawboardPOS.Model
 
     public class Product
     {
-        public string Name { get; set; }
+        public Item Name { get; set; }
         public double OriginalPrice { get; set; }
         public VolumePrice VolumePrice { get; set; }
     }
 
-    public class RootObject
+    public class ProductList
     {
-        public List<Product> Products { get; set; }
+        public List<Product> Product { get; set; }
     }
-
 
 }
