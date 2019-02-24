@@ -8,9 +8,9 @@ namespace drawboardPOS
     {
         static void Main(string[] args)
         {
-            var terminalService = (IService)Startup.Init().GetService(typeof(IService));
+            var terminalService = Startup.Init();
             terminalService.SetPrice();
-            terminalService.Scan("ABCDABA");
+            terminalService.Scan("123");
             var total = terminalService.CalculateTotal();
             Console.WriteLine("Total Price:" + total);
             Console.Read();

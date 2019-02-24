@@ -18,11 +18,10 @@ namespace drawboardPOS.Services
     public class Service : IService
     {
         ProductList productList = new ProductList();
-        Dictionary<Product, int> productVolume = new Dictionary<Product, int>();
+        PriceTable priceTable;
         IScanService _scanService;
         IPriceService _priceService;
         ICalculateService _calculateService;
-        double totalPrice = 0;
 
         public Service(IScanService scanService, IPriceService priceService, ICalculateService calculateService)
         {
@@ -33,24 +32,10 @@ namespace drawboardPOS.Services
 
         public double CalculateTotal()
         {
-            foreach (var item in productVolume)
-            {
-                _calculateService.CalculateTotal(item, ref totalPrice);
-
-            }
-            return totalPrice;
+            return _calculateService.CalculateTotal(priceTable);
         }
 
-        public void Scan(string item)
-        {
-            var ItemArray = item.groupby();
-            foreach (var product in ItemArray)
-            {
-                var productdetails = _scanService.Scan(product.productname, productList);
-                if (productdetails != null)
-                    productVolume.Add(productdetails, product.count);
-            }
-        }
+        public void Scan(string item) => priceTable = _scanService.Scan(item.groupby(), productList);
 
         public void SetPrice() => productList = _priceService.SetPrice();
 

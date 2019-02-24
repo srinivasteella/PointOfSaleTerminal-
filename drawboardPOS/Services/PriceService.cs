@@ -10,17 +10,12 @@ namespace drawboardPOS.Services
     public interface IPriceService
     {
         ProductList SetPrice();
-
     }
     public class PriceService : IPriceService
     {
         public ProductList SetPrice()
         {
-            using (StreamReader r = new StreamReader("Products.json"))
-            {
-                string json = r.ReadToEnd();
-                return JsonConvert.DeserializeObject<ProductList>(json);
-            }
+            return JsonConvert.DeserializeObject<ProductList>(File.ReadAllText("Products.json"));
         }
     }
 }
