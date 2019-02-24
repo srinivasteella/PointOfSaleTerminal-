@@ -4,22 +4,25 @@ using Xunit;
 
 namespace drawboardPOS.Test
 {
-    public class UnitTest : IDisposable
+    public class IntegrationTest : IDisposable
     {
         IPriceService priceService;
         IScanService scanService;
-        ICalculateService calculationService;
-        public UnitTest()
+        ITotalCalculatorService totalcalculationService;
+        ICalculationService calculationService;
+        public IntegrationTest()
         {
             priceService = new PriceService();
             scanService = new ScanService();
-            calculationService = new CalculateService();
+            calculationService = new CalculationService();
+            totalcalculationService = new TotalCalculatorService(calculationService);
         }
 
         public void Dispose()
         {
             priceService = null;
             scanService = null;
+            totalcalculationService = null;
             calculationService = null;
         }
 
@@ -32,7 +35,7 @@ namespace drawboardPOS.Test
         [InlineData("? *", 0)]//incorrect data as special characters
         public void Scan_Calculate_Product_Price(string inputproducts, double expectedvalue)
         {
-            var sut = new Service(scanService, priceService, calculationService);
+            var sut = new Service(scanService, priceService, totalcalculationService);
             sut.SetPrice();
             sut.Scan(inputproducts);
             var actualprice = sut.CalculateTotal();

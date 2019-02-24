@@ -13,7 +13,6 @@ namespace drawboardPOS
         {
             var output = products.ToCharArray()
                 .GroupBy(product => product)
-                .OrderByDescending(group => group.Count())
                 .Select(group => Regex.IsMatch(group.Key.ToString(), @"[A-Z]", RegexOptions.IgnorePatternWhitespace) &&
                 Enum.TryParse(group.Key.ToString(), true, out Item item) ? new ScannedProducts { Name = item, Count = group.Count() } : null);
 

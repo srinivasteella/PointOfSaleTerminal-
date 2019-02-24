@@ -8,22 +8,14 @@ namespace drawboardPOS.Services
 {
     public interface IScanService
     {
-        PriceTable Scan(IEnumerable<ScannedProducts> product, ProductList productList);
+        IEnumerable<ScannedProducts> Scan(string ItemstoScan);
 
     }
     public class ScanService : IScanService
     {
-        public PriceTable Scan(IEnumerable<ScannedProducts> products, ProductList productList)
+        public IEnumerable<ScannedProducts> Scan(string ItemstoScan)
         {
-            Dictionary<Product, ScannedProducts> productVolume = new Dictionary<Product, ScannedProducts>();
-
-            foreach (var product in products.Where(p => p != null))
-            {
-                var productdetails = productList.Product.Find(p => p.Name.Equals(product.Name));
-                if (productdetails != null)
-                    productVolume.Add(productdetails, product);
-            }
-            return new PriceTable(productVolume);
+            return ItemstoScan.groupby();
         }
     }
 }

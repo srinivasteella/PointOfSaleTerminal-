@@ -1,10 +1,5 @@
 ﻿using drawboardPOS.Model;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace drawboardPOS.Services
 {
@@ -17,25 +12,27 @@ namespace drawboardPOS.Services
 
     public class Service : IService
     {
-        ProductList productList = new ProductList();
-        PriceTable priceTable;
+        ProductList productList = null;
+        IEnumerable<ScannedProducts> scannedProducts;
         IScanService _scanService;
         IPriceService _priceService;
-        ICalculateService _calculateService;
+        ITotalCalculatorService _TotalCalculatorService;
 
-        public Service(IScanService scanService, IPriceService priceService, ICalculateService calculateService)
+        public Service(IScanService scanService, IPriceService priceService, ITotalCalculatorService TotalCalculatorService)
         {
             _scanService = scanService;
             _priceService = priceService;
-            _calculateService = calculateService;
+            _TotalCalculatorService = TotalCalculatorService;
         }
 
         public double CalculateTotal()
         {
-            return _calculateService.CalculateTotal(priceTable);
+            var ProductListandScanCount = new ProductListandScanCount(scannedProducts, productList);
+            return _TotalCalculatorService.CalculateTotal(ProductListandScanCount);
+
         }
 
-        public void Scan(string item) => priceTable = _scanService.Scan(item.groupby(), productList);
+        public void Scan(string item) => scannedProducts = _scanService.Scan(item);
 
         public void SetPrice() => productList = _priceService.SetPrice();
 

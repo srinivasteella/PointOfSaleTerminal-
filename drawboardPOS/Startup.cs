@@ -13,7 +13,8 @@ namespace drawboardPOS
             var ServiceProvider = new ServiceCollection()
                                  .AddTransient<IScanService, ScanService>()
                                  .AddTransient<IPriceService, PriceService>()
-                                 .AddTransient<ICalculateService, CalculateService>()
+                                 .AddTransient<ITotalCalculatorService, TotalCalculatorService>()
+                                 .AddTransient<ICalculationService, CalculationService>()
                                  .AddTransient<IService, Service>()
                                  .BuildServiceProvider().GetService<IService>();
             return ServiceProvider;

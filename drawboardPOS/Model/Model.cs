@@ -23,7 +23,11 @@ namespace drawboardPOS.Model
 
     public class ProductList
     {
-        public List<Product> Product { get; set; }
+        public Dictionary<Item, Product> _ProductList { get; private set; }
+        public ProductList(Dictionary<Item, Product> productList)
+        {
+            _ProductList = productList;
+        }
     }
 
     public class ScannedProducts
@@ -32,14 +36,33 @@ namespace drawboardPOS.Model
         public int Count { get; set; }
     }
 
-    public class PriceTable
+    public class ProductListandScanCount
     {
-        public Dictionary<Product, ScannedProducts> ProductPriceTable { get; set; }
-        public double TotalPrice { get; set; }
-        public PriceTable(Dictionary<Product, ScannedProducts> _ProductPriceTable)
+        public IEnumerable<ScannedProducts> ScannedProducts { get; set; }
+        public ProductList ProductList { get; set; }
+        public ProductListandScanCount(IEnumerable<ScannedProducts> _ScannedProducts, ProductList _ProductList)
         {
-            ProductPriceTable = _ProductPriceTable;
+            ScannedProducts = _ScannedProducts;
+            ProductList = _ProductList;
         }
+
     }
 
+    public class ProducFactTable
+    {
+        public ScannedProducts ScannedProduct { get; set; }
+        public Product Product { get; set; }
+
+        //public int ItemTypeCount { get; set; }
+        //public double ItemOriginalPrice { get; set; }
+        //public double ItemVolumnPrice { get; set; }
+        //public int ItemVolume { get; set; }
+
+        public ProducFactTable(ScannedProducts _scannedProduct, Product _product)
+        {
+            ScannedProduct = _scannedProduct;
+            Product = _product;
+        }
+
+    }
 }
