@@ -9,7 +9,7 @@
 ---------------------------------------
 
 
-## Repository codebase
+## Repository CodeBase
  
 The complete app has divided into 2 folders.
 
@@ -63,9 +63,9 @@ The solution has **Integration** and **Unit Tests** to test all the above servic
 
 
 
-### Setup detail
+### Setup Detail
 
-##### Environment Setup detail
+##### Environment Setup Detail
 
 > Download/install   	
 
@@ -73,19 +73,19 @@ The solution has **Integration** and **Unit Tests** to test all the above servic
 >	2. [![.Net Framework](https://img.shields.io/badge/.Net%20Core-2.1-blue.svg)](https://www.microsoft.com/net/download/dotnet-core/2.1) to run the project
 
 
-##### Project Setup detail
+##### Project Setup Detail
 
 >   1. Please clone or download the repository from [![github](https://img.shields.io/badge/git-hub-blue.svg?style=plastic)](https://github.com/srinivasteella/PointOfSaleTerminal-) 
 
 >   
-##### (a) To Run the drawboardPOS project
+##### (a) To Run the drawboardPOS Project
    
 >   1. Open solution in **Visual Studio 2017**     
 >   2. Build the solution
 >   3. Press F5 to run
 
 
-##### (b) To Run the drawboardPOS.Test project
+##### (b) To Run the drawboardPOS.Test Project
 
 >   1. Open solution in **Visual Studio 2017**   
 >   2. Goto Test -> Windows -> Test Explorer   
