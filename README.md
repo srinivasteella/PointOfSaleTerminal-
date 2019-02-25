@@ -3,7 +3,7 @@
 
 #### PointOfSaleTerminal- Console App in .netCore2.1 
 
-| ![GitHub Release Date](https://img.shields.io/github/release-date/srinivasteella/PointOfSaleTerminal-.svg?style=plastic) | [![.Net Framework](https://img.shields.io/badge/DotNet-2.1_Framework-blue.svg?style=plastic)](https://www.microsoft.com/net/download/dotnet-core/2.1) | ![GitHub top language](https://img.shields.io/github/languages/top/srinivasteella/PointOfSaleTerminal-.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/srinivasteella/Angular7-NetCoreAPI.svg) 
+| ![GitHub Release Date](https://img.shields.io/github/release-date/srinivasteella/PointOfSaleTerminal-.svg?style=plastic) | [![.Net Framework](https://img.shields.io/badge/DotNet-2.1_Framework-blue.svg?style=plastic)](https://www.microsoft.com/net/download/dotnet-core/2.1) | ![GitHub top language](https://img.shields.io/github/languages/top/srinivasteella/PointOfSaleTerminal-.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/srinivasteella/PointOfSaleTerminal-.svg) 
 | ---          | ---        | ---       | ---      | 
 
 ---------------------------------------
