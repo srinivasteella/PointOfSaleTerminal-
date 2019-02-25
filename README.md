@@ -50,7 +50,7 @@ Here are the list of services created to calculate total price:
 
 | # |Service Name | Description
 | ---| ---  | --- 
-| 1 | TerminalService | Delegates task to responsible services
+| 1 | TerminalService | Delegates task to respective service
 | 2 | PriceService | Gets available products and individual price and volume offers of each product
 | 3 | ScanService | Scans selected products and group by each product type
 | 4 | TotalCalculatorService | Calculates total price of the selected products
