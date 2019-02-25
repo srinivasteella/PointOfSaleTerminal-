@@ -8,15 +8,15 @@ namespace drawboardPOS
 {
     class Startup
     {
-        internal static IService Init()
+        internal static ITerminalService Init()
         {
             var ServiceProvider = new ServiceCollection()
                                  .AddTransient<IScanService, ScanService>()
                                  .AddTransient<IPriceService, PriceService>()
                                  .AddTransient<ITotalCalculatorService, TotalCalculatorService>()
                                  .AddTransient<ICalculationService, CalculationService>()
-                                 .AddTransient<IService, Service>()
-                                 .BuildServiceProvider().GetService<IService>();
+                                 .AddTransient<ITerminalService, TerminalService>()
+                                 .BuildServiceProvider().GetService<ITerminalService>();
             return ServiceProvider;
         }
     }

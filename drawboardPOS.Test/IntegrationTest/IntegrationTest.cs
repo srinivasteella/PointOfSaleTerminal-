@@ -38,7 +38,7 @@ namespace drawboardPOS.Test
         public void Scan_Calculate_Product_Price(string inputproducts, double expectedvalue)
         {
             //given
-            var sut = new Service(scanService, priceService, totalcalculationService);
+            var sut = new TerminalService(scanService, priceService, totalcalculationService);
             sut.SetPrice();
             sut.Scan(inputproducts);
 

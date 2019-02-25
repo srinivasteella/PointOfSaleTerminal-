@@ -16,11 +16,11 @@ namespace drawboardPOS.Test.UnitTest
         {
             moqCalculateService = new Mock<ICalculationService>();
             Dictionary<Item, Product> productListDictionary = new Dictionary<Item, Product>();
-            productListDictionary.Add(Item.A, new Product { Name = Item.A, OriginalPrice = 1.25, VolumePrice = new VolumePrice { Price = 3, Volume = 3 } });
-            productListDictionary.Add(Item.B, new Product { Name = Item.A, OriginalPrice = 1.25 });
+            productListDictionary.Add(Item.A, new Product(Item.A, 1.25, new VolumePrice(3, 3)));
+            productListDictionary.Add(Item.B, new Product(Item.B, 4.25, null));
 
             ProductList _productList = new ProductList(productListDictionary);
-            IEnumerable<ScannedProducts> scannedProducts = new ScannedProducts[] { new ScannedProducts { Count = 1, Name = Item.A } };
+            IEnumerable<ScannedProducts> scannedProducts = new ScannedProducts[] { new ScannedProducts(Item.A, 1) };
             prodListCount = new ProductListandScanCount(scannedProducts, _productList);
         }
 
@@ -45,6 +45,8 @@ namespace drawboardPOS.Test.UnitTest
 
             //then
             Assert.Equal(expectedprice, actual);
+            moqCalculateService.Verify(v => v.CalculateBundlePrice(It.IsAny<ProducFactTable>()), Times.Between(0, 10, Range.Inclusive));
+            moqCalculateService.Verify(v => v.CalculateItemPrice(It.IsAny<ProducFactTable>()), Times.Between(0, 10, Range.Inclusive));
         }
 
 

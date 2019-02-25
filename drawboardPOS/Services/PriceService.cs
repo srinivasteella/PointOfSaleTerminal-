@@ -18,10 +18,10 @@ namespace drawboardPOS.Services
 
         public ProductList SetPrice()
         {
-            productList.Add(Item.A, new Product { Name = Item.A, OriginalPrice = 1.25, VolumePrice = new VolumePrice { Price = 3, Volume = 3 } });
-            productList.Add(Item.B, new Product { Name = Item.B, OriginalPrice = 4.25, VolumePrice = null });
-            productList.Add(Item.C, new Product { Name = Item.C, OriginalPrice = 1, VolumePrice = new VolumePrice { Price = 5, Volume = 6 } });
-            productList.Add(Item.D, new Product { Name = Item.D, OriginalPrice = 0.75, VolumePrice = null });
+            productList.Add(Item.A, new Product(Item.A, 1.25, new VolumePrice(3, 3)));
+            productList.Add(Item.B, new Product(Item.B, 4.25, null));
+            productList.Add(Item.C, new Product(Item.C, 1, new VolumePrice(6, 5)));
+            productList.Add(Item.D, new Product(Item.D, 0.75, null));
 
             return new ProductList(productList);
         }

@@ -14,7 +14,7 @@ namespace drawboardPOS
             var output = products.ToUpper().ToCharArray()
                 .GroupBy(product => product)
                 .Select(group => Regex.IsMatch(group.Key.ToString(), @"[A-Z]", RegexOptions.IgnorePatternWhitespace) &&
-                Enum.TryParse(group.Key.ToString(), true, out Item item) ? new ScannedProducts { Name = item, Count = group.Count() } : null);
+                Enum.TryParse(group.Key.ToString(), true, out Item item) ? new ScannedProducts(item, group.Count()) : null);
 
             return output;
         }

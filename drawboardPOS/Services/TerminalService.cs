@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace drawboardPOS.Services
 {
-    public interface IService
+    public interface ITerminalService
     {
         void SetPrice();
         void Scan(string items);
         double CalculateTotal();
     }
 
-    public class Service : IService
+    public class TerminalService : ITerminalService
     {
         ProductList productList = null;
         IEnumerable<ScannedProducts> scannedProducts;
@@ -18,7 +18,7 @@ namespace drawboardPOS.Services
         IPriceService _priceService;
         ITotalCalculatorService _TotalCalculatorService;
 
-        public Service(IScanService scanService, IPriceService priceService, ITotalCalculatorService TotalCalculatorService)
+        public TerminalService(IScanService scanService, IPriceService priceService, ITotalCalculatorService TotalCalculatorService)
         {
             _scanService = scanService;
             _priceService = priceService;

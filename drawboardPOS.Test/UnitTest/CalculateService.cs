@@ -14,8 +14,8 @@ namespace drawboardPOS.Test.UnitTest
         ProducFactTable productFactTable;
         public CalculateService()
         {
-            product = new Product { Name = Item.A, OriginalPrice = 1.25, VolumePrice = new VolumePrice { Price = 3, Volume = 3 } };
-            scannedProduct = new ScannedProducts { Count = 3, Name = Item.A };
+            product = new Product(Item.A, 1.25, new VolumePrice(3, 3));
+            scannedProduct = new ScannedProducts(Item.A, 3);
             productFactTable = new ProducFactTable(scannedProduct, product);
         }
 
