@@ -1,4 +1,4 @@
-# PointOfSaleTerminal-NetCore ![GitHub release](https://img.shields.io/github/release/srinivasteella/PointOfSaleTerminal.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2019.svg?style=for-the-badge)
+# PointOfSaleTerminal-NetCore ![GitHub release](https://img.shields.io/github/release/srinivasteella/PointOfSaleTerminal-.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2019.svg?style=for-the-badge)
 
 
 #### PointOfSaleTerminal- Console App in .netCore2.1 
