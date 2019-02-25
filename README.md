@@ -29,7 +29,7 @@ The main aim of the application is to accept an arbitrary ordering of products (
 
 Consider a grocery market where items have prices per unit but also volume prices. For example, doughnuts may be $1.25 each or 3 for $3 dollars. There could only be a single volume discount per product.
 
-Products listed by code and the prices to used:
+Products listed by code and the prices used:
 
 
     Product Code Price
