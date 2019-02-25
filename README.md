@@ -19,7 +19,7 @@ The repository consists of projects as below:
 | # |Project Name | Project detail | Environment |
 | ---| ---  | ---           | --- |
 | 1 | drawboardPOS | Asp.Net Core2.1 Console App   | [![.Net Framework](https://img.shields.io/badge/DotNet-2.1_Framework-blue.svg?style=plastic)](https://www.microsoft.com/net/download/dotnet-core/2.1)|
-| 2 | drawboardPOS.Test | Unit Test for drawboardPOS | [![.Net Framework](https://img.shields.io/badge/DotNet-2.1_Framework-blue.svg?style=plastic)](https://www.microsoft.com/net/download/dotnet-core/2.1)| 
+| 2 | drawboardPOS.Test | Unit||Integration Test for drawboardPOS | [![.Net Framework](https://img.shields.io/badge/DotNet-2.1_Framework-blue.svg?style=plastic)](https://www.microsoft.com/net/download/dotnet-core/2.1)| 
 
 
 
