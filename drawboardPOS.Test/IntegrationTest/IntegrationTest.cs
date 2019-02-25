@@ -28,6 +28,8 @@ namespace drawboardPOS.Test
 
         [Theory]
         [InlineData("ABCDABAX", 13.25)]
+        [InlineData("ABCDABA", 13.25)]
+        [InlineData("AbCDaBA", 13.25)]
         [InlineData("CCCCCCC", 6.00)]
         [InlineData("ABCD", 7.25)]
         [InlineData("123", 0)] //incorrect data as numerics
@@ -35,10 +37,15 @@ namespace drawboardPOS.Test
         [InlineData("? *", 0)]//incorrect data as special characters
         public void Scan_Calculate_Product_Price(string inputproducts, double expectedvalue)
         {
+            //given
             var sut = new Service(scanService, priceService, totalcalculationService);
             sut.SetPrice();
             sut.Scan(inputproducts);
+
+            //when
             var actualprice = sut.CalculateTotal();
+
+            //then
             Assert.IsType<double>(actualprice);
             Assert.Equal(expectedvalue, actualprice);
         }

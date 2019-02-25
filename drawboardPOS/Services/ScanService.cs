@@ -8,14 +8,17 @@ namespace drawboardPOS.Services
 {
     public interface IScanService
     {
-        IEnumerable<ScannedProducts> Scan(string ItemstoScan);
+        IEnumerable<ScannedProducts> Scan(ItemstoScan ItemstoScan);
 
     }
     public class ScanService : IScanService
     {
-        public IEnumerable<ScannedProducts> Scan(string ItemstoScan)
+        public IEnumerable<ScannedProducts> Scan(ItemstoScan ItemstoScan)
         {
-            return ItemstoScan.groupby();
+            if (ItemstoScan == null || ItemstoScan.Items == null)
+            { return Enumerable.Empty<ScannedProducts>(); }
+
+            return ItemstoScan.Items.groupby();
         }
     }
 }

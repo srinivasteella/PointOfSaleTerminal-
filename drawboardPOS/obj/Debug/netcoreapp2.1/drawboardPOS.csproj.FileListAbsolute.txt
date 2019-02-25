@@ -19,5 +19,4 @@ D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS\obj\Debug\netcoreapp2.1\
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS\obj\Debug\netcoreapp2.1\drawboardPOS.AssemblyInfo.cs
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS\obj\Debug\netcoreapp2.1\drawboardPOS.dll
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS\obj\Debug\netcoreapp2.1\drawboardPOS.pdb
-D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS\bin\Debug\netcoreapp2.1\Products.json
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS\obj\Debug\netcoreapp2.1\drawboardPOS.csprojAssemblyReference.cache

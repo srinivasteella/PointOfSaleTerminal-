@@ -21,14 +21,24 @@ namespace drawboardPOS.Services
         }
         public double CalculateTotal(ProductListandScanCount productsListandCount)
         {
-            foreach (var scanneditems in productsListandCount.ScannedProducts.Where(a => a != null))
+            if (productsListandCount == null)
+            { return totalprice; }
+
+            try
             {
-                var item = productsListandCount.ProductList._ProductList[scanneditems.Name];
-                var productfactdata = new ProducFactTable(scanneditems, item);
-                if (item.VolumePrice != null)
-                    totalprice = totalprice + _calculateService.CalculateBundlePrice(productfactdata);
-                else
-                    totalprice = totalprice + _calculateService.CalculateItemPrice(productfactdata);
+                foreach (var scanneditems in productsListandCount.ScannedProducts.Where(a => a != null))
+                {
+                    var item = productsListandCount.ProductList._ProductList[scanneditems.Name];
+                    var productfactdata = new ProducFactTable(scanneditems, item);
+                    if (item.VolumePrice != null)
+                        totalprice = totalprice + _calculateService.CalculateBundlePrice(productfactdata);
+                    else
+                        totalprice = totalprice + _calculateService.CalculateItemPrice(productfactdata);
+                }
+            }
+            catch
+            {
+                //Log Exception
             }
 
             return totalprice;

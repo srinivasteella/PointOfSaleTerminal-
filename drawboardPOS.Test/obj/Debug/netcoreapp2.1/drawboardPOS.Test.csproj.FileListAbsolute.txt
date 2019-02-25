@@ -1,7 +1,6 @@
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS.Test\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS.Test\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS.Test\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
-D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS.Test\bin\Debug\netcoreapp2.1\Products.json
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS.Test\bin\Debug\netcoreapp2.1\drawboardPOS.Test.deps.json
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS.Test\bin\Debug\netcoreapp2.1\drawboardPOS.Test.runtimeconfig.json
 D:\Dev\MyRND\SriniGIT\PointOfSaleTerminal-\drawboardPOS.Test\bin\Debug\netcoreapp2.1\drawboardPOS.Test.runtimeconfig.dev.json

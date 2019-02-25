@@ -16,17 +16,38 @@ namespace drawboardPOS.Services
         int remaining = 0, bundle = 0;
         public double CalculateBundlePrice(ProducFactTable productFactTable)
         {
-            bundle = productFactTable.ScannedProduct.Count / productFactTable.Product.VolumePrice.Volume;
-            remaining = productFactTable.ScannedProduct.Count % productFactTable.Product.VolumePrice.Volume;
-            price = (bundle * productFactTable.Product.VolumePrice.Price) + (remaining) * productFactTable.Product.OriginalPrice;
+            if (productFactTable == null || productFactTable.ScannedProduct == null || productFactTable.Product == null)
+            { return price; }
+            try
+            {
+                bundle = productFactTable.ScannedProduct.Count / productFactTable.Product.VolumePrice.Volume;
+                remaining = productFactTable.ScannedProduct.Count % productFactTable.Product.VolumePrice.Volume;
+                price = (bundle * productFactTable.Product.VolumePrice.Price) + (remaining) * productFactTable.Product.OriginalPrice;
+            }
+            catch
+            {
+                //Log Exception 
 
+            }
             return price;
+
         }
 
         public double CalculateItemPrice(ProducFactTable productFactTable)
         {
-            price = productFactTable.ScannedProduct.Count * productFactTable.Product.OriginalPrice;
+            if (productFactTable == null || productFactTable.ScannedProduct == null || productFactTable.Product == null)
+            { return price; }
+            try
+            {
+                price = productFactTable.ScannedProduct.Count * productFactTable.Product.OriginalPrice;
+            }
+            catch
+            {
+                //Log Exception 
+
+            }
             return price;
         }
+
     }
 }

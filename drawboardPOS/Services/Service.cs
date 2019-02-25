@@ -32,7 +32,7 @@ namespace drawboardPOS.Services
 
         }
 
-        public void Scan(string item) => scannedProducts = _scanService.Scan(item);
+        public void Scan(string item) => scannedProducts = _scanService.Scan(new ItemstoScan(item));
 
         public void SetPrice() => productList = _priceService.SetPrice();
 

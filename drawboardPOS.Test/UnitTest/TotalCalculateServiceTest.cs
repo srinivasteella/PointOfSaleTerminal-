@@ -1,0 +1,52 @@
+﻿using drawboardPOS.Model;
+using drawboardPOS.Services;
+using Moq;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Xunit;
+
+namespace drawboardPOS.Test.UnitTest
+{
+    public class TotalCalculatorServiceTest : IDisposable
+    {
+        Mock<ICalculationService> moqCalculateService = null;
+        ProductListandScanCount prodListCount;
+        public TotalCalculatorServiceTest()
+        {
+            moqCalculateService = new Mock<ICalculationService>();
+            Dictionary<Item, Product> productListDictionary = new Dictionary<Item, Product>();
+            productListDictionary.Add(Item.A, new Product { Name = Item.A, OriginalPrice = 1.25, VolumePrice = new VolumePrice { Price = 3, Volume = 3 } });
+            productListDictionary.Add(Item.B, new Product { Name = Item.A, OriginalPrice = 1.25 });
+
+            ProductList _productList = new ProductList(productListDictionary);
+            IEnumerable<ScannedProducts> scannedProducts = new ScannedProducts[] { new ScannedProducts { Count = 1, Name = Item.A } };
+            prodListCount = new ProductListandScanCount(scannedProducts, _productList);
+        }
+
+        public void Dispose()
+        {
+            moqCalculateService = null;
+        }
+
+        [Theory]
+        [InlineData(13.25)]
+        [InlineData(5.5)]
+        public void Calculate_TotalPrice_AllScannedItems(double expectedprice)
+        {
+            //given
+            moqCalculateService.Setup(m => m.CalculateBundlePrice(It.IsAny<ProducFactTable>())).Returns(expectedprice);
+            moqCalculateService.Setup(m => m.CalculateItemPrice(It.IsAny<ProducFactTable>())).Returns(expectedprice);
+
+            var sut = new TotalCalculatorService(moqCalculateService.Object);
+
+            //when
+            var actual = sut.CalculateTotal(prodListCount);
+
+            //then
+            Assert.Equal(expectedprice, actual);
+        }
+
+
+    }
+}

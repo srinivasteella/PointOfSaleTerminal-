@@ -53,11 +53,6 @@ namespace drawboardPOS.Model
         public ScannedProducts ScannedProduct { get; set; }
         public Product Product { get; set; }
 
-        //public int ItemTypeCount { get; set; }
-        //public double ItemOriginalPrice { get; set; }
-        //public double ItemVolumnPrice { get; set; }
-        //public int ItemVolume { get; set; }
-
         public ProducFactTable(ScannedProducts _scannedProduct, Product _product)
         {
             ScannedProduct = _scannedProduct;
@@ -65,4 +60,16 @@ namespace drawboardPOS.Model
         }
 
     }
+
+    public class ItemstoScan
+    {
+        public string Items { get; set; }
+
+        public ItemstoScan(string _Items)
+        {
+            Items = _Items;
+        }
+    }
+
+
 }
